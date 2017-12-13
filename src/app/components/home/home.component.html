@@ -31,6 +31,9 @@
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <a *ngIf='loggedUser.name' class='btn'>{{loggedUser.name}}</a>
+      <img *ngIf='loggedUser.name && loggedUser.photo' width='20px' height='20px' [src]="loggedUser.photo" alt="Usuario photo">
+      <img *ngIf='loggedUser.name && !loggedUser.photo' width='20px' height='20px' src="http://www.clarkegroup.co.uk/wp-content/uploads/2014/10/placeholder-employee.jpg" alt="Usuario photo">
     </form>
   </div>
 </nav>
@@ -116,4 +119,32 @@
     {{item.name}}
   </li>
 </ul>
+-->
+
+<!--
+  FACEBOOK LOGIN
+
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '{your-app-id}',
+      cookie     : true,
+      xfbml      : true,
+      version    : '{latest-api-version}'
+    });
+
+    FB.AppEvents.logPageView();
+
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 -->
