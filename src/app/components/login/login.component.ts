@@ -22,8 +22,6 @@ export class LoginComponent implements OnInit {
     photo: ''
   };
 
-  subscription: Observable<any>;
-
   constructor(public _authF: AngularFireAuthModule, private _router: Router, public _authService: AuthService) {
   }
 
@@ -33,17 +31,6 @@ export class LoginComponent implements OnInit {
   signInWithTwitter() {
     this._authService.signInWithTwitter().then((data) => {
       console.log(data);
-      console.log(data.user.displayName);
-      if (data.user && data.user.displayName) {
-        this.usuario.name = data.user.displayName;
-      }
-      if (data.user && data.user.photoURL) {
-        this.usuario.photo = data.user.photoURL;
-      }
-      console.log(this.usuario);
-      return this.usuario;
-      // this._authService.setLoggedUser(data.user.displayName, data.user.photoURL);
-      // this._router.navigate(['/home']);
     }).catch((error) => {
       console.log(error);
     });
@@ -52,17 +39,6 @@ export class LoginComponent implements OnInit {
   signInWithFacebook() {
     this._authService.signInWithFacebook().then((data) => {
       console.log(data);
-      console.log(data.user.displayName);
-      if (data.user && data.user.displayName) {
-        this.usuario.name = data.user.displayName;
-      }
-      if (data.user && data.user.photoURL) {
-        this.usuario.photo = data.user.photoURL;
-      }
-      // this._authService.setLoggedUser(data.user.displayName, data.user.photoURL);
-      // this._router.navigate(['/home']);
-      console.log(this.usuario);
-      // this._router.navigate(['/home']);
       }).catch((error) => {
         console.log(error);
       });
@@ -71,17 +47,6 @@ export class LoginComponent implements OnInit {
   signInWithGoogle() {
     this._authService.signInWithGoogle().then((data) => {
       console.log(data);
-      console.log(data.user.displayName);
-      if (data.user && data.user.displayName) {
-        this.usuario.name = data.user.displayName;
-      }
-      if (data.user && data.user.photoURL) {
-        this.usuario.photo = data.user.photoURL;
-      }
-      // this._authService.setLoggedUser(data.user.displayName, data.user.photoURL);
-      // this._router.navigate(['/home']);
-      console.log(this.usuario);
-      // this._router.navigate(['/home']);
       }).catch((error) => {
         console.log(error);
       });

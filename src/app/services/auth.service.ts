@@ -53,6 +53,11 @@ export class AuthService {
     };
   }
 
+  public logout() {
+    this._firebaseAuth.auth.signOut()
+    .then((res) => this.router.navigate(['/']));
+  }
+
 }
 
 /*
