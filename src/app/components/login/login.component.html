@@ -15,5 +15,4 @@
 </button>
 </div>
 
-<a  class='btn'>{{usuario.name | async}}</a>
-<img width='20px' height='20px' [src]="usuario.photo" alt="Usuario photo">
+<p>{{_authService.user | async | json }}</p>

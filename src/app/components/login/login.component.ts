@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   subscription: Observable<any>;
 
-  constructor(public _authF: AngularFireAuthModule, private _router: Router, private _authService: AuthService) {
+  constructor(public _authF: AngularFireAuthModule, private _router: Router, public _authService: AuthService) {
   }
 
   ngOnInit() {
