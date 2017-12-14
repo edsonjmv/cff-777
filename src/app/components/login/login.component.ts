@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 // import { moveIn } from '../router.animations';
 import { AuthService } from './../../services/auth.service';
 import { Observable } from 'rxjs/Observable';
+import { log } from 'util';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-login',
@@ -22,6 +24,8 @@ export class LoginComponent implements OnInit {
     photo: ''
   };
 
+  loggedUser: firebase.User;
+
   @ViewChild('loginTab') logintab: ElementRef;
   @ViewChild('signupTab') signuptab: ElementRef;
   @ViewChild('loginContainer') loginContainer: ElementRef;
@@ -31,6 +35,12 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this._authService.user.subscribe((data) => {
+      console.log(data);
+      this.loggedUser = data;
+    }, (error) => {
+      console.log(error);
+    });
   }
 
   clickTabLogin() {
@@ -59,6 +69,7 @@ export class LoginComponent implements OnInit {
   signInWithTwitter() {
     this._authService.signInWithTwitter().then((data) => {
       console.log(data);
+      this._router.navigate(['/home']);
     }).catch((error) => {
       console.log(error);
     });
@@ -67,6 +78,7 @@ export class LoginComponent implements OnInit {
   signInWithFacebook() {
     this._authService.signInWithFacebook().then((data) => {
       console.log(data);
+      this._router.navigate(['/home']);
       }).catch((error) => {
         console.log(error);
       });
@@ -75,6 +87,7 @@ export class LoginComponent implements OnInit {
   signInWithGoogle() {
     this._authService.signInWithGoogle().then((data) => {
       console.log(data);
+      this._router.navigate(['/home']);
       }).catch((error) => {
         console.log(error);
       });

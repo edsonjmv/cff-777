@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     photo: ''
   };
 
-  constructor(db: AngularFirestore, private _authService: AuthService) {
+  constructor(db: AngularFirestore, public _db: AngularFirestore, private _authService: AuthService) {
     // this.itemDoc = db.doc<any>('items/1');
     // this.items = this.itemDoc.valueChanges();
     this.itemsCollection = db.collection<any>('items');
@@ -33,6 +33,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     console.log(this.items);
+    this.itemsCollection = this._db.collection<any>('items');
+    this.items = this.itemsCollection.valueChanges();
   }
 
   ngAfterViewInit() {

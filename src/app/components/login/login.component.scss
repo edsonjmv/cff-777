@@ -1,4 +1,4 @@
-button {
+button, a {
   cursor: pointer;
 }
 
@@ -8,6 +8,10 @@ html {
 
 *, *:before, *:after {
   box-sizing: inherit;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .logmod {
@@ -116,10 +120,6 @@ html {
   font-weight: 700;
   font-size: 16px;
   cursor: pointer;
-}
-
-.logmod__tabs li a:focus {
-  outline: dotted 1px;
 }
 
 .logmod__heading {
@@ -268,7 +268,7 @@ html {
   margin: 9px 0 0 0;
   color: #8C979E;
   text-align: center;
-  line-height: 24px;
+  line-height: 44px;
 }
 
 .simform__actions-sidetext::after {
@@ -331,7 +331,7 @@ html {
 }
 
 .sminputs .input input {
-  postion: relative;
+  position: relative;
   display: inline-block;
   height: 24px;
   font-size: 15px;
@@ -348,6 +348,7 @@ html {
   cursor: pointer;
   background-color: transparent;
   color: rgba(75, 89, 102, 0.85);
+  outline-width: 0;
 }
 
 .sminputs .hide-password {
@@ -454,10 +455,6 @@ html {
 
 .btn.red:active, .simform__actions .red.sumbit:active, .btn.red:focus, .simform__actions .red.sumbit:focus {
   background-color: #ef1d0d;
-}
-
-.btn.red:hover, .simform__actions .red.sumbit:hover {
-  background-color: #f32c1e;
 }
 
 .btn.pink, .simform__actions .pink.sumbit {
@@ -695,7 +692,7 @@ html {
 }
 
 .special {
-  color: #f44336;
+  color: #f44336!important;
   position: relative;
   text-decoration: none;
   transition: all 0.15s ease-out;
@@ -712,15 +709,6 @@ html {
   visibility: hidden;
   transform: scaleX(0);
   transition: all 0.3s ease-in-out 0s;
-}
-
-.special:hover {
-  transition: all 0.15s ease-out;
-}
-
-.special:hover:before {
-  visibility: visible;
-  transform: scaleX(1);
 }
 
 #baseline {
